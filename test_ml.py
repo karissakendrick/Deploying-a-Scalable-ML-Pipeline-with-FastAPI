@@ -41,8 +41,9 @@ def test_compute_model_metrics():
     """
     y_true = np.array([1, 0, 1, 1, 0])
     y_pred = np.array([1, 0, 1, 0, 0])
-    precision, recall, fbeta = compute_model_metrics(y_true, y_pred)
-    assert precision == pytest.approx(2/3)  # Use pytest.approx.
+    precision, recall, fbeta = compute_model_metrics(y_true, y_pred)  # Get the values
+
+    assert precision == pytest.approx(2/3)  # Use the returned values
     assert recall == pytest.approx(2/3)
     assert fbeta == pytest.approx(2/3)
 
