@@ -1,7 +1,7 @@
 import pickle
-from sklearn.metrics import precision_score, recall_score, f1_score
-from ml.data import process_data
 # TODO: add necessary import
+from sklearn.metrics import precision_score, recall_score, f1_score, fbeta_score
+from ml.data import process_data
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 
@@ -43,9 +43,9 @@ def compute_model_metrics(y_true, y_pred):
     recall : float
     fbeta : float
     """
-    precision = precision_score(y_true, y_pred)
+    precision = precision_score(y_true, y_pred, zero_division=0)
     recall = recall_score(y_true, y_pred)
-    fbeta = fbeta_score(y_true, y_pred, beta=1)  # Use fbeta_score with beta=1 for F1
+    fbeta = fbeta_score(y_true, y_pred, beta=1)
     return precision, recall, fbeta
 
 
